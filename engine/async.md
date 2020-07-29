@@ -17,7 +17,6 @@
 
 ### Runtime
 
-- web API handles async
-- call back queue stores callback
+- web API handles async stuff
+- call back queue stores async callbacks
 - event loop feeds callback into call stack when empty
-- when promise resolves, pushes callback onto call back
