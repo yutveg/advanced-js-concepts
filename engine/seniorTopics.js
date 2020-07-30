@@ -47,3 +47,19 @@ function sing() {
 var sing2 = function () {
   console.log("uhhh lalala");
 };
+
+// var favouriteFood = undefined
+// var foodThoughts = undefined
+// favouriteFood = grapes
+// foodThoughts = function()
+// Inside new execution context of foodThoughts()
+// creation, hoists favouriteFood when sees "var"
+// favouriteFood = undefined
+// on execution, favouriteFood = undefined, then set to
+// "sushi"
+var favouriteFood = "grapes";
+var foodThoughts = function () {
+  console.log("Original", favouriteFood);
+  var favouriteFood = "sushi";
+  console.log("New", favouriteFood);
+};
