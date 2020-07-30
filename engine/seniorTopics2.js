@@ -16,5 +16,19 @@ function marry2(...args) {
 }
 
 marry2("john", "jame", "joe");
-// "Variable environment"
-//
+// "Variable environment" - lexical scope of vars on each function
+
+/*
+||  Scope Chain  ||
+*/
+// the scoping of variable/data access, based on nested level of execution context
+// program searches all the way down to global context to find var/data
+function sayMyName() {
+  return function findName() {
+    return function printName() {
+      return "A name";
+    };
+  };
+}
+
+console.log(sayMyName()()());
