@@ -21,8 +21,8 @@
 - var c = [1, 2, 3]
 - var d = [].concat(c)
 
-# To copy objects
+# To copy objects (shallow)
 
-- let obj = {a: 'a', b: 'b'}
+- let obj = {a: 'a', b: 'b', c: { deep: "copy me" }}
 - let clone = Object.assign({}, obj)
 - let clone2 = {...obj}
