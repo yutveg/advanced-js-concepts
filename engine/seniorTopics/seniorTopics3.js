@@ -47,7 +47,7 @@ script1.a();
 */
 // points at the object which the function is a property of
 // gives methods access to their object
-// is NOT lexically scoped
+// is NOT lexically scoped unless in arrow function
 // this = window by default
 function a() {
   // this points at global execution context
