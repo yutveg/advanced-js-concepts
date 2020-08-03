@@ -1,3 +1,4 @@
+"use strict";
 /*
 ||  Function Invocation  ||
 */
@@ -32,3 +33,19 @@ function sayMyName() {
 }
 
 console.log(sayMyName()()());
+
+function weird() {
+  // leakage of global vars
+  // can avoid with 'use strict'
+  height = 50;
+  return height;
+}
+
+var heyhey = function doodle() {
+  return "hey";
+};
+
+weird();
+heyhey();
+// not defined on global scope, encapsulated inside heyhey
+doodle();
