@@ -26,3 +26,7 @@
 - let obj = {a: 'a', b: 'b', c: { deep: "copy me" }}
 - let clone = Object.assign({}, obj)
 - let clone2 = {...obj}
+
+# Deep copy
+
+- let superClone = JSON.parse(JSON.stringify(obj))
