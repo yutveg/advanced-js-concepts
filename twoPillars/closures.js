@@ -19,3 +19,32 @@ console.log(a()()());
 // b() var env: father
 // a() var env: grandpa // garbage collector will ignore
 // variables that are required via closure
+
+// Closures even work with processes that get offloaded
+// to the web API. The JS engine knows that there is still a reference
+// on the callback queue, and won't garbage collect the item
+
+// ||  Andrei's Primary Benefits  ||
+// memory efficient
+// encapsulation
+function heavyDuty(index) {
+  const bigArray = new Array(7000).fill(":)");
+  console.log("Created");
+  return bigArray[index];
+}
+
+console.log(heavyDuty(677));
+console.log(heavyDuty(677));
+console.log(heavyDuty(677));
+const getHeavyDuty = heavyDuty2();
+console.log(getHeavyDuty(700));
+console.log(getHeavyDuty(730));
+console.log(getHeavyDuty(705));
+
+function heavyDuty2() {
+  const bigArray = new Array(7000).fill(":)");
+  console.log("Created2");
+  return function (index) {
+    return bigArray[index];
+  };
+}
