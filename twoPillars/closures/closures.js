@@ -48,3 +48,25 @@ function heavyDuty2() {
     return bigArray[index];
   };
 }
+
+const makeNuclearButton = () => {
+  let timeWithoutDestruction = 0;
+  const passTime = () => timeWithoutDestruction++;
+  const totalPeaceTime = () => timeWithoutDestruction;
+  const launch = () => {
+    timeWithoutDestruction = -1;
+    return "boom";
+  };
+  setInterval(passTime, 1000);
+  // encapsulating functionality/data from returned object
+  return {
+    launch: launch,
+    totalPeaceTime: totalPeaceTime,
+  };
+};
+
+// Principle of least privilege
+
+const ohNo = makeNuclearButton();
+console.log(ohNo.totalPeaceTime());
+console.log(ohNo.launch());
