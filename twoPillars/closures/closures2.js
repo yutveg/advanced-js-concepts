@@ -1,14 +1,17 @@
 function initialSetUp() {
   let wasInitialized = false;
   const initialize = () => {
-    console.log(wasInitialized);
-    view = "some view";
-    console.log("view has been set!");
-    wasInitialized = true;
+    if (wasInitialized) {
+      return;
+    } else {
+      console.log(wasInitialized);
+      view = "some view";
+      console.log("view has been set!");
+      wasInitialized = true;
+    }
   };
-
   return {
-    initialize: wasInitialized ? null : initialize,
+    initialize: initialize,
   };
 }
 
