@@ -55,3 +55,14 @@ const obj3 = {
 // template strings
 const someValue = 5;
 const stringTemplated = `here is ${someValue}`;
+
+// Symbol type
+let sym1 = Symbol("foo");
+let sym2 = Symbol("foo");
+// creates a unique value, not a reference value
+let sym3 = Symbol("foo");
+console.log(sym2 === sym3);
+
+// Arrow functions ( lexically bound this keyword )
+const add = (a, b) => a + b;
+console.log(add(3, 4));
