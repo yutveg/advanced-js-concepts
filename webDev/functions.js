@@ -18,3 +18,10 @@ const curriedMultiply = (a) => (b) => a * b;
 const multiplyByThree = curriedMultiply(3);
 // an example use case:
 console.log(multiplyByThree(20));
+
+// Compose:
+const compose = (f, g) => (a) => f(g(a));
+
+const sum = (num) => num + 1;
+
+console.log(compose(sum, sum)(5));
