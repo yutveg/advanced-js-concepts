@@ -21,4 +21,8 @@ function reverseChars(array) {
   return array;
 }
 const arrayOfCharacters = ["k", "o", "d", "i", "n"];
+const arrayOfCharacters2 = ["c", "a", "r"];
+const arrayOfCharacters3 = ["t", "a", "d", "a"];
 console.log(reverseChars(arrayOfCharacters));
+console.log(reverseChars(arrayOfCharacters2));
+console.log(reverseChars(arrayOfCharacters3));
