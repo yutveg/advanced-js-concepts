@@ -48,3 +48,9 @@ const myArray = [3, 4, 6, 10, 11, 15];
 const alicesArray = [1, 5, 8, 12, 14, 19];
 
 console.log(merge(myArray, alicesArray));
+
+const doubleMyArray = myArray.map(function (item) {
+  return item + 2;
+});
+console.log(myArray);
+console.log(doubleMyArray);
