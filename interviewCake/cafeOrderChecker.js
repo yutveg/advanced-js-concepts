@@ -12,6 +12,8 @@ function orderChecker(takeOut, dineIn, served) {
   let dineInIndex = 0;
 
   for (let i = 0; i < served.length; i++) {
+    console.log("takeOut value", takeOut[takeOutIndex]);
+    console.log("dineIn value", dineIn[dineInIndex]);
     // check each value as compared to unique numbers in order arrays
     if (served[i] === takeOut[takeOutIndex]) {
       // moving up to next order
