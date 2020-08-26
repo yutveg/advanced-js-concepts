@@ -17,7 +17,7 @@ function wordFrequency(string) {
         .toLowerCase();
 
       // if it exists in our map, we increment, else initialize to 1
-      wordMap[word] ? (wordMap[word] += 1) : (wordMap[word] = 1);
+      wordMap.get(word) ? (wordMap[word] += 1) : (wordMap[word] = 1);
 
       // set our new indexes
       wordStart = i + 1;
