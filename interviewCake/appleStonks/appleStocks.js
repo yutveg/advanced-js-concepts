@@ -15,9 +15,6 @@ function getBestProfit(array) {
   }
   // variable for bestProfit so far
   // initialize it with array[0] - array[1]
-
-  // two vars for high and low as we iterate thru
-  // to capture indexes of highest and lowest values
   let bestProfit = array[1] - array[0];
 
   let lowestPrice = array[0];
