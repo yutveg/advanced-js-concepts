@@ -16,7 +16,7 @@ class BinaryTreeNode {
   }
 }
 
-function isBinarySearchTree(treeRoot) {
+function isValidBST(treeRoot) {
   // Start at the root, with an arbitrarily low lower bound
   // and an arbitrarily high upper bound
   const nodeAndBoundsStack = [];
@@ -60,6 +60,6 @@ function isBinarySearchTree(treeRoot) {
 }
 
 let head = new BinaryTreeNode(4);
-head.insertRight(5).insertLeft(4);
+head.insertRight(10).insertLeft(8).insertRight(9);
 head.insertLeft(2).insertRight(3);
 console.log(isValidBST(head));
