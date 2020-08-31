@@ -16,36 +16,50 @@ class BinaryTreeNode {
   }
 }
 
-function isValidBST(node) {
-  // touch all nodes and check their neighbor values
-  // if we finish return true
-  // if we find incompatible values, return false
+function isBinarySearchTree(treeRoot) {
+  // Start at the root, with an arbitrarily low lower bound
+  // and an arbitrarily high upper bound
+  const nodeAndBoundsStack = [];
+  nodeAndBoundsStack.push({
+    node: treeRoot,
+    lowerBound: Number.NEGATIVE_INFINITY,
+    upperBound: Number.POSITIVE_INFINITY,
+  });
 
-  let nodes = [node];
-  let currentNode;
+  // Depth-first traversal
+  while (nodeAndBoundsStack.length) {
+    const { node, lowerBound, upperBound } = nodeAndBoundsStack.pop();
 
-  // while we have nodes to touch
-  while (nodes.length) {
-    currentNode = nodes.pop();
-
-    // check if we have left or right nodes
-    if (currentNode.left) {
-      // check that their values are compatible with BST format
-      if (currentNode.left.value < currentNode.value) {
-        nodes.push(currentNode.left);
-      } else return false;
+    // If this node is invalid, we return false right away
+    if (node.value <= lowerBound || node.value >= upperBound) {
+      return false;
     }
-    if (currentNode.right) {
-      if (currentNode.right.value > currentNode.value) {
-        nodes.push(currentNode.right);
-      } else return false;
+
+    if (node.left) {
+      // This node must be less than the current node
+      nodeAndBoundsStack.push({
+        node: node.left,
+        lowerBound,
+        upperBound: node.value,
+      });
+    }
+
+    if (node.right) {
+      // This node must be greater than the current node
+      nodeAndBoundsStack.push({
+        node: node.right,
+        lowerBound: node.value,
+        upperBound,
+      });
     }
   }
 
+  // If none of the nodes were invalid, return true
+  // (At this point we have checked all nodes)
   return true;
 }
 
 let head = new BinaryTreeNode(4);
-head.insertRight(5).insertLeft(4).insertLeft(3);
-head.insertLeft(3).insertLeft(2).insertRight(3);
+head.insertRight(5).insertLeft(4);
+head.insertLeft(2).insertRight(3);
 console.log(isValidBST(head));
