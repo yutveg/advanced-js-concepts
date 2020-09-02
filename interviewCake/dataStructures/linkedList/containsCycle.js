@@ -9,7 +9,14 @@ const LinkedListNode = require("./LinkedListNode");
 // if we reach end of ll return false
 
 let head = new LinkedListNode(4);
-head.addToTail(3).addToTail(4).addToTail(6);
+let second = new LinkedListNode(5);
+let third = new LinkedListNode(6);
+let fourth = new LinkedListNode(7);
+
+head.next = second;
+second.next = third;
+third.next = fourth;
+// fourth.next = second; adds a cycle to our list
 
 function containsCycle(head) {
   let node = head;
