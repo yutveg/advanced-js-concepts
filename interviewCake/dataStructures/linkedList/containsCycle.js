@@ -17,7 +17,7 @@ head.next = second;
 second.next = third;
 third.next = fourth;
 // fourth.next = second; adds a cycle to our list
-
+// O(n) time and space solution:
 function containsCycle(head) {
   let node = head;
 
@@ -42,4 +42,24 @@ function containsCycle(head) {
   }
 }
 
+// O(n) time + O(1) space
+function containsCycleRunners(head) {
+  let fastRunner = head;
+  let slowRunner = head;
+
+  while (fastRunner && fastRunner.next) {
+    // increment fast runner two steps
+    fastRunner = fastRunner.next.next;
+    // increment slow runner two steps
+    slowRunner = slowRunner.next;
+
+    if (fastRunner === slowRunner) {
+      return true;
+    }
+  }
+  // fast runner hit end of list
+  return false;
+}
+
 console.log(containsCycle(head));
+console.log(containsCycleRunners(head));
