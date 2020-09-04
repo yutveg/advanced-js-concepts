@@ -24,6 +24,7 @@ function reverseLinkedList(currentNode, prev = null) {
 
   reverseLinkedList(currentNode, prev);
 }
+
 console.log(
   head.value,
   head.next.value,
